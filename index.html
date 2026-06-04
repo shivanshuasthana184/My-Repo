@@ -1,1 +1,147 @@
-<h1>Welcome Goodwill</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Fun Facts</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        padding:20px;
+    }
+
+    .container{
+        width:100%;
+        max-width:700px;
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(12px);
+        border:1px solid rgba(255,255,255,0.2);
+        border-radius:25px;
+        padding:40px;
+        text-align:center;
+        color:white;
+        box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    h1{
+        font-size:2.5rem;
+        margin-bottom:10px;
+    }
+
+    .subtitle{
+        opacity:0.85;
+        margin-bottom:30px;
+    }
+
+    .fact-box{
+        min-height:140px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:rgba(255,255,255,0.15);
+        border-radius:18px;
+        padding:25px;
+        margin-bottom:25px;
+        font-size:1.2rem;
+        line-height:1.6;
+        transition:all 0.3s ease;
+    }
+
+    button{
+        border:none;
+        outline:none;
+        background:white;
+        color:#6a11cb;
+        padding:14px 28px;
+        font-size:1rem;
+        font-weight:600;
+        border-radius:50px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    button:hover{
+        transform:translateY(-3px);
+        box-shadow:0 8px 20px rgba(255,255,255,0.25);
+    }
+
+    .emoji{
+        font-size:3rem;
+        margin-bottom:15px;
+    }
+
+    @media(max-width:600px){
+        h1{
+            font-size:2rem;
+        }
+
+        .fact-box{
+            font-size:1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="emoji">🎲</div>
+
+    <h1>Random Fun Facts</h1>
+    <p class="subtitle">Click the button and learn something interesting!</p>
+
+    <div class="fact-box" id="factBox">
+        Press the button to generate a fun fact.
+    </div>
+
+    <button onclick="generateFact()">
+        Generate Random Fun Fact
+    </button>
+</div>
+
+<script>
+const facts = [
+    "Honey never spoils. Archaeologists have found edible honey in ancient Egyptian tombs.",
+    "Octopuses have three hearts and blue blood.",
+    "Bananas are berries, but strawberries are not.",
+    "A day on Venus is longer than a year on Venus.",
+    "The Eiffel Tower can grow about 15 cm taller during hot weather.",
+    "Sharks existed before trees.",
+    "Wombats produce cube-shaped poop.",
+    "There are more stars in the universe than grains of sand on Earth.",
+    "A group of flamingos is called a flamboyance.",
+    "The human brain uses about 20% of the body's energy.",
+    "Some turtles can breathe through their rear ends.",
+    "Water can boil and freeze at the same time under special conditions.",
+    "The shortest war in history lasted only 38 minutes.",
+    "Koalas have fingerprints that are almost identical to humans.",
+    "An astronaut's height can increase in space due to reduced gravity."
+];
+
+function generateFact() {
+    const factBox = document.getElementById("factBox");
+
+    const randomIndex = Math.floor(Math.random() * facts.length);
+
+    factBox.style.opacity = "0";
+
+    setTimeout(() => {
+        factBox.textContent = facts[randomIndex];
+        factBox.style.opacity = "1";
+    }, 200);
+}
+</script>
+
+</body>
+</html>
